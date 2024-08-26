@@ -2,7 +2,7 @@
 
 This repository accompanies the paper "A Data-Centric Perspective on Evaluating Machine Learning Models for Tabular Data" [https://arxiv.org/abs/2407.02112](https://arxiv.org/abs/2407.02112). It contains the proposed evaluation framework, consisting of datasets from Machine Learning Competitions and expert-level solutions for each task. This evaluation framework enables researchers to evaluate machine learning models with realistic preprocessing pipelines beyond overly standardized evaluation setups typically used in academia.
 
-![Figure 1: Overview of our results.](figures/all_results.pdf)
+![Figure 1: Overview of our results.](figures/all_results.jpg)
 
 
 If you use our evaluation framework, please cite the following bib entry:
