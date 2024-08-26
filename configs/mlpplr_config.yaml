@@ -1,0 +1,31 @@
+exp_name: "neurips24" # Experiment name 
+seed: 42 # Random seed to use for experiments
+split_seed: 42 # Random seed to use for CV
+direct_submit: true # If True, test predictions are submitted to Kaggle via api - only activate after making sure the api is working 
+
+dataset:
+    dataset_name: "mercedes-benz-greener-manufacturing" # One of: ['mercedes-benz-greener-manufacturing', 'santander-value-prediction-challenge', 'amazon-employee-access-challenge', 'otto-group-product-classification-challenge', 'santander-customer-satisfaction', 'bnp-paribas-cardif-claims-management', 'santander-customer-transaction-prediction', 'homesite-quote-conversion', 'ieee-fraud-detection', 'porto-seguro-safe-driver-prediction']
+    preprocess_type: "minimalistic" # One of [expert, minimalistic, null]
+    toy_example: false # If true, a toy version of the dataset will be loaded
+    use_test: true # If true, test-time feature engineering is used during preprocessing for test-time adaptation 
+    overwrite_existing: false # If true, expert preprocessing is recomputed, even when it was already done and stored
+    
+model:
+    model_name: "MLP-PLR" # One of: [XGBoost, CatBoost, LightGBM, ResNet, FTTRansformer, MLP-PLR, GRANDE, AutoGluon]
+    # hyperparameters: null # Hyperparameters to overwrite the default configurations 
+    device: "cuda" # Device to use, currently only "cuda" tested
+    gpus: "0" # Which GPU nodes in cluster to use
+    folds_parallel: 1 #5 # How many CV folds to train in parallel on one node
+    
+    # Necessary MLP-PLR hyperparameters
+    epochs: 200
+    patience: 5
+    batch_size: 128
+    val_batch_size: 128 
+    
+
+hpo: 
+    n_trials: 100 # How many trials to run in total (including warmup)
+    n_startup_trials: 20 # How many random search warumup iterations to perform
+    ensemble_best_trials: "auto" # EXPERIMENTAL, One of [None, int, 'auto'] If int, the predictions of the best int trials are averaged, if 'auto', the best k trials to average are automatically determined based on validation data
+    save_interval: 5 # After how many trials to dump the current study to possibly reload it at a later point in time                   
