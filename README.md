@@ -61,22 +61,10 @@ To add new datasets, the following steps are required:
 - Add the class to the get_datasets function in datasets.py 
 - Addition of the dataset to download_datasets.py
 
-Currently, the only supported platform is Kaggle as it offers an API that allows for easy post-competition submissions. We appreciate any contributions allowing us to integrate datasets from other platforms. Contributions of datasets without expert preprocessing are also appreciated.
+Currently, the only supported platform is Kaggle, as it offers an API that allows for easy post-competition submissions. We appreciate any contributions that allow us to integrate datasets from other platforms, as well as contributions of datasets without expert preprocessing for comparison in the standardized preprocessing regime.
 
 ### Models
 To add new models, the following steps are required:
-- A new class in the models.py file that can be initialised with a params dictionary and includes the following functions: fit, predict, get_default_hyperparameters, get_optuna_hyperparameters
+- A new class in the models.py file that can be initialized with a params dictionary and includes the following functions: fit, predict, get_default_hyperparameters, get_optuna_hyperparameters
 - Add the class to the get_models function in models.py 
 - Add a configs/{new_model}.yaml file including information about configurable, but not tuned hyperparameters
-
-
-## Citation
-
-```bibtex
-@article{tschalzev2024data,
-  title={A Data-Centric Perspective on Evaluating Machine Learning Models for Tabular Data},
-  author={Tschalzev, Andrej and Marton, Sascha and L{\"u}dtke, Stefan and Bartelt, Christian and Stuckenschmidt, Heiner},
-  journal={arXiv preprint arXiv:2407.02112},
-  year={2024}
-}
-```
